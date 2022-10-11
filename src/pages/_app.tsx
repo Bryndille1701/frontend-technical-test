@@ -4,9 +4,6 @@ import type { NextPage } from 'next';
 import { getLoggedUserId } from '../utils/getLoggedUserId';
 import '../styles/globals.css';
 
-// Default way to get a logged user
-export const loggedUserId = getLoggedUserId();
-
 export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
   getLayout?: (page: ReactElement) => ReactNode;
 };

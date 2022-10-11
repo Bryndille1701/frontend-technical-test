@@ -3,6 +3,8 @@ import { FC } from 'react';
 import Container from '../../components/Container';
 import ConvLayout from '../../components/ConvLayout';
 import Main from '../../components/Main';
+import fetchConversations from '../../utils/fetchConversations';
+import { getLoggedUserId } from '../../utils/getLoggedUserId';
 import { NextPageWithLayout } from '../_app';
 
 const Conversation: NextPageWithLayout = () => {
@@ -16,7 +18,9 @@ Conversation.getLayout = (page) => {
 export default Conversation;
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
+  const userId = getLoggedUserId();
+  const conversations = await fetchConversations(userId);
   return {
-    props: { conversations: [] },
+    props: { conversations },
   };
 };

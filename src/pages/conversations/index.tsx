@@ -4,6 +4,8 @@ import type { NextPageWithLayout } from '../_app';
 import Container from '../../components/Container';
 import ConvLayout from '../../components/ConvLayout';
 import Main from '../../components/Main';
+import { getLoggedUserId } from '../../utils/getLoggedUserId';
+import fetchConversations from '../../utils/fetchConversations';
 
 const Conversations: NextPageWithLayout = () => {
   return (
@@ -19,7 +21,9 @@ Conversations.getLayout = (page) => {
 export default Conversations;
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
+  const userId = getLoggedUserId();
+  const conversations = await fetchConversations(userId);
   return {
-    props: { conversations: [] },
+    props: { conversations },
   };
 };

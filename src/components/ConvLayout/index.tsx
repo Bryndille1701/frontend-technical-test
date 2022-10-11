@@ -8,6 +8,7 @@ const ConvLayout: FC<{
   children?: ReactNode;
   conversations: Conversation[];
 }> = ({ children, conversations }) => {
+  console.log(conversations);
   return (
     <Container>
       <Main>
