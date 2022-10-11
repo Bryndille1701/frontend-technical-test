@@ -2,13 +2,15 @@ import type { FC } from 'react';
 import Head from 'next/head';
 import Image from 'next/image';
 import Logo from '../assets/lbc-logo.webp';
-import styles from '../styles/Home.module.css';
+import Main from '../components/Main';
+import Container from '../components/Container';
+import styles from '../styles/Home.module.scss';
 
 const Home: FC = () => {
   const year = new Date().getFullYear();
 
   return (
-    <div className={styles.container}>
+    <Container>
       <Head>
         <title>Frontend Technical test - Leboncoin</title>
         <meta
@@ -16,8 +18,7 @@ const Home: FC = () => {
           content="Frontend exercise for developpers who want to join us on leboncoin.fr"
         ></meta>
       </Head>
-
-      <main className={styles.main}>
+      <Main>
         <Image
           src={Logo}
           alt="Leboncoin Frontend Team"
@@ -98,10 +99,10 @@ const Home: FC = () => {
             </p>
           </article>
         </div>
-      </main>
+      </Main>
 
       <footer className={styles.footer}>&copy; leboncoin - {year}</footer>
-    </div>
+    </Container>
   );
 };
 
