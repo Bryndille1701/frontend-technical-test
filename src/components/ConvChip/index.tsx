@@ -9,6 +9,7 @@ import { useRouter } from 'next/router';
 
 const UserLoading = () => (
   <ContentLoader
+    uniqueKey="userLoading"
     style={{ width: '120px', height: '12px' }}
     viewBox="0 0 120 12"
   >
