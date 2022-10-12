@@ -10,3 +10,9 @@
     width: 100%;
   }
 }
+
+.listConv {
+  @include mq($bp-tablet) {
+    display: none;
+  }
+}

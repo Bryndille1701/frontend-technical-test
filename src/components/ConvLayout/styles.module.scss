@@ -7,9 +7,3 @@
   column-gap: rem(20);
   width: 100%;
 }
-.ConvWrapper {
-  width: calc(75% - #{rem(10)});
-  @include mq($bp-tablet) {
-    width: 100%;
-  }
-}

@@ -1,0 +1,21 @@
+@import '../../styles/variables';
+@import '../../styles/functions';
+@import '../../styles/mixins';
+
+.messageBack {
+  padding: rem(10);
+  background-color: $color_main;
+  color: $white;
+  border-radius: rem(6);
+  display: flex;
+  column-gap: rem(10);
+  align-items: center;
+  &::before {
+    @include icomoon;
+    content: '\e900';
+    font-size: rem(20);
+  }
+  @include mq($bp-tablet, 'min') {
+    display: none;
+  }
+}

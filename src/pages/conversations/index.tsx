@@ -7,20 +7,22 @@ import ConvLayout from '../../components/ConvLayout';
 import Main from '../../components/Main';
 import { getLoggedUserId } from '../../utils/getLoggedUserId';
 import fetchConversations from '../../utils/fetchConversations';
+import ConvIndex from '../../components/ConvIndex';
 
 const Conversations: NextPageWithLayout<{
   conversations: ConversationType[] | Error;
 }> = ({ conversations }) => {
   if (conversations instanceof Error) {
   }
-  return (
-    // TODO : Option to create a conversation from there
-    <div>Index conversations</div>
-  );
+  return <ConvIndex />;
 };
 
 Conversations.getLayout = (page) => {
-  return <ConvLayout {...page.props}>{page}</ConvLayout>;
+  return (
+    <ConvLayout {...page.props} isIndex={true}>
+      {page}
+    </ConvLayout>
+  );
 };
 
 export default Conversations;

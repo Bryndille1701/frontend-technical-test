@@ -7,12 +7,13 @@ import styles from './styles.module.scss';
 
 const ConvList: FC<{
   conversations: Conversation[] | Error;
-}> = ({ conversations }) => {
+  isIndex: boolean;
+}> = ({ conversations, isIndex }) => {
   if (conversations instanceof Error) {
     return <div className={styles.list}>{conversations.message}</div>;
   }
   return (
-    <div className={styles.list}>
+    <div className={`${styles.list} ${!isIndex ? styles.listConv : false}`}>
       {conversations && conversations.length > 0 ? (
         conversations.map((conv) => (
           <ConvChip key={conv.id} conversation={conv} />

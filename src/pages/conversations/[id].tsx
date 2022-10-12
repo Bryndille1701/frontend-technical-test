@@ -36,7 +36,11 @@ const Conversation: NextPageWithLayout<{
 };
 
 Conversation.getLayout = (page) => {
-  return <ConvLayout {...page.props}>{page}</ConvLayout>;
+  return (
+    <ConvLayout {...page.props} isIndex={false}>
+      {page}
+    </ConvLayout>
+  );
 };
 
 export default Conversation;

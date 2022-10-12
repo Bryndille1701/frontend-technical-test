@@ -1,0 +1,13 @@
+@import '../../styles/variables';
+@import '../../styles/functions';
+@import '../../styles/mixins';
+
+.ConvIndex {
+  padding: rem(10);
+  border: rem(1) solid $color_grey;
+  border-radius: rem(6);
+  width: calc(75% - #{rem(10)});
+  @include mq($bp-tablet) {
+    display: none;
+  }
+}
