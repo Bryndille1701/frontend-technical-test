@@ -1,0 +1,44 @@
+//=============================================
+//Media query en em
+//=============================================
+@mixin mq($value: false, $query-type: 'max') {
+  @if $query-type == 'max' {
+    @media only screen and (max-width: rem($value)) {
+      @content;
+    }
+  } @else if $query-type == 'min' {
+    @media only screen and (min-width: rem($value)) {
+      @content;
+    }
+  } @else if $query-type == 'max-height' {
+    @media only screen and (max-height: rem($value)) {
+      @content;
+    }
+  } @else if $query-type == 'min-height' {
+    @media only screen and (min-height: rem($value)) {
+      @content;
+    }
+  } @else if $query-type == 'hdpi' {
+    @media only screen and (-webkit-min-device-pixel-ratio: $ratioHDPI),
+    only screen and (min--moz-device-pixel-ratio: $ratioHDPI),
+    only screen and (-o-min-device-pixel-ratio: #{$ratioHDPI}/1),
+    only screen and (min-resolution: round($ratioHDPI * 96dpi)),
+    only screen and (min-resolution: $ratioHDPI * 1dppx) {
+      @content;
+    }
+  } @else if $query-type == 'orientation' {
+    @media all and (orientation: $value) {
+      @content;
+    }
+  } @else if $query-type == 'min-ratio' {
+    @media screen and (min-aspect-ratio: $value) {
+      @content;
+    }
+  } @else if $query-type == 'max-ratio' {
+    @media screen and (max-aspect-ratio: $value) {
+      @content;
+    }
+  } @else {
+    @warn "Type not supported.";
+  }
+}

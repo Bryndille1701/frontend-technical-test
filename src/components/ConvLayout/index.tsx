@@ -1,4 +1,6 @@
+import { useRouter } from 'next/router';
 import { FC, ReactNode } from 'react';
+import useMediaQuery from '../../hooks/useMediaQuery';
 import { Conversation } from '../../types/conversation';
 import Container from '../Container';
 import ConvList from '../ConvList';
@@ -9,12 +11,19 @@ const ConvLayout: FC<{
   children?: ReactNode;
   conversations: Conversation[];
 }> = ({ children, conversations }) => {
+  const matches = useMediaQuery('(max-width: 768px)');
+  const router = useRouter();
+  const isInConv = router?.query?.id;
   return (
     <Container>
       <Main>
         <div className={styles.ConvLayout}>
-          <ConvList conversations={conversations} />
-          <div>{children}</div>
+          {(!isInConv || !matches) && (
+            <ConvList conversations={conversations} />
+          )}
+          {(!!isInConv || !matches) && (
+            <div className={styles.ConvWrapper}>{children}</div>
+          )}
         </div>
       </Main>
     </Container>

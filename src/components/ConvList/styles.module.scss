@@ -1,5 +1,12 @@
+@import '../../styles/functions';
+@import '../../styles/mixins';
+
 .list {
   display: flex;
   flex-direction: column;
-  row-gap: 0.875rem;
+  row-gap: rem(10);
+  width: calc(25% - #{rem(10)});
+  @include mq($bp-tablet) {
+    width: 100%;
+  }
 }
