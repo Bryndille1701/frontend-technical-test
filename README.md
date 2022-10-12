@@ -36,7 +36,7 @@ Both routes use a common `Layout` component, responsible of displaying the list 
 ## Lacking features
 
 - **Auth** : Sadly, I wasn’t able to add an auth system.
-- Accessibility : I wash I had time to add accessibility features, such as regions, aria roles, etc.
+- Accessibility : I wish I had time to add accessibility features, such as regions, aria roles, etc.
 - **Adding conversation** : I designed all the features and components to add new conversations, but I wasn’t able to adapt the json-server to store the data correctly.
 - **User data** is refetched too often, and it would be better to have it globally stored for use in different components
 - Lack of a **global store**, with Redux or useContext, to store fetched data, make it available through the app, and reduce refetching / prop waterfalling.
