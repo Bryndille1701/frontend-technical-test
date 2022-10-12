@@ -13,7 +13,7 @@ import { Message, SendMessageFn, SendMessageFnArgs } from '../types/message';
 const useMessages = (
   conversationId: Conversation['id'],
   initialMessages: Message[]
-): [UseQueryResult<Message[] | undefined, unknown>, SendMessageFn] => {
+): [UseQueryResult<Message[] | undefined | Error, unknown>, SendMessageFn] => {
   const queryClient = useQueryClient();
 
   const messages = useQuery(
@@ -44,7 +44,6 @@ const useMessages = (
   );
 
   const sendMessage = (messageBody) => {
-    console.log('sendind message');
     mutation.mutate(messageBody);
   };
 

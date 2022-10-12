@@ -9,11 +9,12 @@ import styles from './styles.module.scss';
 
 const ConvLayout: FC<{
   children?: ReactNode;
-  conversations: Conversation[];
+  conversations: Conversation[] | Error;
 }> = ({ children, conversations }) => {
   const matches = useMediaQuery('(max-width: 768px)');
   const router = useRouter();
   const isInConv = router?.query?.id;
+  console.log(conversations);
   return (
     <Container>
       <Main>

@@ -220,6 +220,16 @@
       "id": 4,
       "nickname": "Elodie",
       "token": "xxxx"
+    },
+    {
+      "id": 5,
+      "nickname": "Raphaël",
+      "token": "xxxx"
+    },
+    {
+      "id": 6,
+      "nickname": "Juliette",
+      "token": "xxxx"
     }
   ]
 }

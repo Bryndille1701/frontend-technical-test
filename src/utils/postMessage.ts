@@ -8,8 +8,7 @@ import postData from './postData';
 const postMessage = ({
   messageBody,
   conversationId,
-}: SendMessageFnArgs): Promise<Message> => {
-  console.log('before postData');
+}: SendMessageFnArgs): Promise<Message | Error> => {
   const res = postData<Message>(`/messages/${conversationId}`, messageBody);
   return res;
 };

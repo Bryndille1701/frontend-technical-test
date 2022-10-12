@@ -1,0 +1,11 @@
+@import '../../styles/functions';
+@import '../../styles/mixins';
+
+.window {
+  display: flex;
+  flex-direction: column;
+  row-gap: rem(20);
+  padding: rem(10);
+  border: rem(1) solid $color_grey;
+  border-radius: rem(6);
+}

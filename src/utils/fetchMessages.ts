@@ -6,7 +6,7 @@ import fetchData from './fetchData';
 // Fetch conversations from the database
 const fetchMessages = (
   conversationId: Conversation['id']
-): Promise<Message[]> => {
+): Promise<Message[] | Error> => {
   const res = fetchData<Message[]>(`/messages/${conversationId}`);
   return res;
 };

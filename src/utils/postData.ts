@@ -1,8 +1,4 @@
-const postData = async <T>(req: string, body: any): Promise<T> => {
-  console.log('in postData');
-  console.log('req', req);
-  console.log('body', body);
-
+const postData = async <T>(req: string, body: any): Promise<T | Error> => {
   const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}${req}`, {
     method: 'POST',
     body: JSON.stringify(body),

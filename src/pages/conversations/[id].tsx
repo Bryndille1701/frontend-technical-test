@@ -12,14 +12,20 @@ import fetchMessages from '../../utils/fetchMessages';
 import { getLoggedUserId } from '../../utils/getLoggedUserId';
 import { NextPageWithLayout } from '../_app';
 import MessageWindow from '../../components/MessageWindow';
+import MessageWindowError from '../../components/MessageWindowError';
 
 const Conversation: NextPageWithLayout<{
-  messages: Message[];
+  messages: Message[] | Error;
   conversationId: ConversationType['id'];
   userId: User['id'];
 }> = ({ messages: initialMessages, conversationId, userId }) => {
+  if (initialMessages instanceof Error) {
+    return <MessageWindowError error={initialMessages} />;
+  }
   const [{ data }, sendMessage] = useMessages(conversationId, initialMessages);
-  console.log(data);
+  if (data instanceof Error) {
+    return <MessageWindowError error={data} />;
+  }
   return (
     <MessageWindow
       conversationId={conversationId}
@@ -37,9 +43,11 @@ export default Conversation;
 
 export const getServerSideProps: GetServerSideProps = async ({ query }) => {
   const conversationId = Number(query?.id);
-  const messages = await fetchMessages(conversationId);
+  let messages = await fetchMessages(conversationId);
   const userId = getLoggedUserId();
-  const conversations = await fetchConversations(userId);
+  let conversations = await fetchConversations(userId);
+  conversations = JSON.parse(JSON.stringify(conversations));
+  messages = JSON.parse(JSON.stringify(messages));
   return {
     props: { conversations, messages, conversationId, userId },
   };
