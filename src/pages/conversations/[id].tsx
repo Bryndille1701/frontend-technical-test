@@ -11,15 +11,22 @@ import fetchConversations from '../../utils/fetchConversations';
 import fetchMessages from '../../utils/fetchMessages';
 import { getLoggedUserId } from '../../utils/getLoggedUserId';
 import { NextPageWithLayout } from '../_app';
+import MessageWindow from '../../components/MessageWindow';
 
 const Conversation: NextPageWithLayout<{
   messages: Message[];
   conversationId: ConversationType['id'];
   userId: User['id'];
 }> = ({ messages: initialMessages, conversationId, userId }) => {
-  const [{ data }, sendMessages] = useMessages(conversationId, initialMessages);
+  const [{ data }, sendMessage] = useMessages(conversationId, initialMessages);
   console.log(data);
-  return <div>Une conservation parmi d’autres…</div>;
+  return (
+    <MessageWindow
+      conversationId={conversationId}
+      messages={data}
+      sendMessage={sendMessage}
+    />
+  );
 };
 
 Conversation.getLayout = (page) => {

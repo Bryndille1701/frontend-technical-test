@@ -1,0 +1,8 @@
+@import '../../styles/functions';
+@import '../../styles/mixins';
+
+.window {
+  display: flex;
+  flex-direction: column;
+  row-gap: rem(20);
+}

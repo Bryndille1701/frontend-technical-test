@@ -1,0 +1,19 @@
+@import '../../styles/variables';
+@import '../../styles/functions';
+@import '../../styles/mixins';
+
+.form {
+  display: flex;
+  column-gap: rem(10);
+}
+
+.textarea {
+  flex-grow: 1;
+  font-family: sans-serif;
+  padding: rem(10);
+}
+
+.submit {
+  border: rem(1) solid $color_grey;
+  background-color: rgba($color_grey, 0.5);
+}

@@ -1,12 +1,14 @@
 @import '../../styles/variables';
+@import '../../styles/functions';
+@import '../../styles/mixins';
 
 .chip {
   display: flex;
   align-items: center;
   column-gap: 0.875rem;
-  border: 1px solid #d3d3d3;
+  border: 1px solid $color_grey;
   padding: 0.875rem;
-  border-radius: 6px;
+  border-radius: rem(6);
   min-width: 11.5rem;
 }
 .activeChip {
