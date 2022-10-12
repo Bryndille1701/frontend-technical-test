@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, useMemo } from 'react';
 import { Conversation } from '../../types/conversation';
 import { Message, SendMessageFn } from '../../types/message';
 import { getLoggedUserId } from '../../utils/getLoggedUserId';
@@ -10,10 +10,16 @@ const MessageWindow: FC<{
   messages: Message[];
 }> = ({ messages }) => {
   const currentUser = getLoggedUserId();
+  // useMemo to order messages by timestamp efficiently
+  const orderedMessages = useMemo(() => {
+    return messages.sort((a, b) => {
+      return a.timestamp - b.timestamp;
+    });
+  }, [messages]);
   return (
     <div className={styles.messageList}>
-      {messages && messages.length > 0 ? (
-        messages.map((message) => {
+      {orderedMessages && orderedMessages.length > 0 ? (
+        orderedMessages.map((message) => {
           return (
             <div
               className={`${styles.message} ${
