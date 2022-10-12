@@ -27,7 +27,7 @@ function useMediaQuery(query: string): boolean {
     return () => {
       matchMedia.removeEventListener('change', handleChange);
     };
-  }, [query]);
+  }, [query, handleChange]);
 
   return matches;
 }

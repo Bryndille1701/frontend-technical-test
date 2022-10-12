@@ -26,7 +26,7 @@ const AddConv: FC<{
           });
         })
       : [];
-  }, [users]);
+  }, [users, conversations]);
   const queryClient = useQueryClient();
   const [isAdding, setIsAdding] = useState(false);
   const [selectValue, setSelectValue] = useState<number>();
@@ -64,7 +64,7 @@ const AddConv: FC<{
     if (selectValue && isAdding) {
       mutation.mutate({ userId: currentUser, recipientId: selectValue });
     }
-  }, [selectValue, isAdding]);
+  }, [selectValue, isAdding, currentUser, mutation]);
   return (
     <>
       {availableUsers && availableUsers.length > 0 && (
