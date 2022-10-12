@@ -3,7 +3,7 @@ import { Message } from '../types/message';
 import type { User } from '../types/user';
 import fetchData from './fetchData';
 
-// Fetch conversations from the database
+// Fetch messages from the database
 const fetchMessages = (
   conversationId: Conversation['id']
 ): Promise<Message[] | Error> => {

@@ -4,7 +4,7 @@ import type { User } from '../types/user';
 import fetchData from './fetchData';
 import postData from './postData';
 
-// Fetch conversations from the database
+// Post new message to the database
 const postMessage = ({
   messageBody,
   conversationId,

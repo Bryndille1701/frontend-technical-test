@@ -26,6 +26,9 @@ const ConvChip: FC<{
       ? conversation.recipientId
       : conversation.senderId;
   const { data: user, isLoading, error } = useUser(userToFetch);
+  if (user instanceof Error) {
+    return null;
+  }
   const router = useRouter();
   return (
     <Link

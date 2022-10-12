@@ -13,6 +13,7 @@
 }
 .activeChip {
   border-color: $color_main;
+  background-color: rgba($color_grey, 0.2);
 }
 .userPicture {
   width: 40px;

@@ -1,0 +1,16 @@
+@import '../../styles/functions';
+@import '../../styles/mixins';
+
+.addButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  column-gap: 0.875rem;
+  border: rem(1) solid $color_main;
+  padding: 0.875rem;
+  border-radius: rem(6);
+  min-width: 11.5rem;
+  background-color: transparent;
+  font-size: rem(16);
+  cursor: pointer;
+}

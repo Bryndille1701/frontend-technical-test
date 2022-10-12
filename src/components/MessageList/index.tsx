@@ -12,9 +12,11 @@ const MessageWindow: FC<{
   const currentUser = getLoggedUserId();
   // useMemo to order messages by timestamp efficiently
   const orderedMessages = useMemo(() => {
-    return messages.sort((a, b) => {
-      return a.timestamp - b.timestamp;
-    });
+    return messages && messages.length
+      ? messages.sort((a, b) => {
+          return a.timestamp - b.timestamp;
+        })
+      : messages;
   }, [messages]);
   return (
     <div className={styles.messageList}>

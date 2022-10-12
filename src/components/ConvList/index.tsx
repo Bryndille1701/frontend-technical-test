@@ -1,5 +1,6 @@
 import { FC } from 'react';
 import { Conversation } from '../../types/conversation';
+import AddConv from '../AddConv';
 import ConvChip from '../ConvChip';
 import NoConv from '../NoConv';
 import styles from './styles.module.scss';
@@ -19,6 +20,7 @@ const ConvList: FC<{
       ) : (
         <NoConv />
       )}
+      <AddConv conversations={conversations} />
     </div>
   );
 };
