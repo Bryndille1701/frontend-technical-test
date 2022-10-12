@@ -14,7 +14,6 @@ const ConvLayout: FC<{
   const matches = useMediaQuery('(max-width: 768px)');
   const router = useRouter();
   const isInConv = router?.query?.id;
-  console.log(conversations);
   return (
     <Container>
       <Main>

@@ -27,7 +27,6 @@ const useMessages = (
 
   const mutation = useMutation(
     ({ messageBody, conversationId }) => {
-      console.log('posting message');
       return postMessage({ messageBody, conversationId });
     },
     {
